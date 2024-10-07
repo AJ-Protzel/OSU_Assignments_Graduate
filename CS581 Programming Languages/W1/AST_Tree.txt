@@ -1,0 +1,106 @@
+Module(
+    body=[
+        Import(
+            names=[
+                alias(name='random')]),
+        ClassDef(
+            name='Helldives',
+            bases=[],
+            keywords=[],
+            body=[
+                FunctionDef(
+                    name='__init__',
+                    args=arguments(
+                        posonlyargs=[],
+                        args=[
+                            arg(arg='self'),
+                            arg(arg='bugs'),
+                            arg(arg='bots')],
+                        kwonlyargs=[],
+                        kw_defaults=[],
+                        defaults=[]),
+                    body=[
+                        Assign(
+                            targets=[
+                                Attribute(
+                                    value=Name(id='self', ctx=Load()),
+                                    attr='bugs',
+                                    ctx=Store())],
+                            value=Name(id='bugs', ctx=Load())),
+                        Assign(
+                            targets=[
+                                Attribute(
+                                    value=Name(id='self', ctx=Load()),
+                                    attr='bots',
+                                    ctx=Store())],
+                            value=Name(id='bots', ctx=Load()))],
+                    decorator_list=[],
+                    type_params=[]),
+                FunctionDef(
+                    name='render',
+                    args=arguments(
+                        posonlyargs=[],
+                        args=[
+                            arg(arg='self')],
+                        kwonlyargs=[],
+                        kw_defaults=[],
+                        defaults=[]),
+                    body=[
+                        Pass()],
+                    decorator_list=[],
+                    type_params=[])],
+            decorator_list=[],
+            type_params=[]),
+        Assign(
+            targets=[
+                Name(id='Missions', ctx=Store())],
+            value=List(elts=[], ctx=Load())),
+        For(
+            target=Name(id='_', ctx=Store()),
+            iter=Call(
+                func=Name(id='range', ctx=Load()),
+                args=[
+                    Call(
+                        func=Attribute(
+                            value=Name(id='random', ctx=Load()),
+                            attr='randint',
+                            ctx=Load()),
+                        args=[
+                            BinOp(
+                                left=Constant(value=10),
+                                op=Add(),
+                                right=Constant(value=1)),
+                            BinOp(
+                                left=Constant(value=20),
+                                op=Sub(),
+                                right=Constant(value=1))],
+                        keywords=[])],
+                keywords=[]),
+            body=[
+                Expr(
+                    value=Call(
+                        func=Attribute(
+                            value=Name(id='Missions', ctx=Load()),
+                            attr='append',
+                            ctx=Load()),
+                        args=[
+                            Name(id='Helldives', ctx=Load())],
+                        keywords=[]))],
+            orelse=[]),
+        Expr(
+            value=Call(
+                func=Name(id='print', ctx=Load()),
+                args=[
+                    JoinedStr(
+                        values=[
+                            Constant(value='There are '),
+                            FormattedValue(
+                                value=Call(
+                                    func=Name(id='len', ctx=Load()),
+                                    args=[
+                                        Name(id='Missions', ctx=Load())],
+                                    keywords=[]),
+                                conversion=-1),
+                            Constant(value=' number of objects in the list.')])],
+                keywords=[]))],
+    type_ignores=[])
